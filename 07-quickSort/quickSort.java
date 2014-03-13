@@ -3,32 +3,36 @@ import java.util.*;
 
 public class quickSort{
 
-    public int[] qsort(int[] L){
+    public Integer[] qsort(Integer[] L){
 	if (L.length <= 1){
 	    return L;
 	}
 	Random r = new Random();
-	int pivot = r.nextInt(L.length);
-	ArrayList first = new ArrayList<Integer>();
-	ArrayList second = new ArrayList<Integer>();
+	int pivot = r.nextInt(L.length-1);
+	ArrayList<Integer> first = new ArrayList<Integer>();
+	ArrayList<Integer> second = new ArrayList<Integer>();
 	for (int i = 0; i < L.length; i++){
 	    if (i == pivot){
 		i++;
 	    }
-	    else if (L[i] <= L[pivot]){
+	    if (L[i] <= L[pivot]){
 		first.add(L[i]);
 	    }
 	    else {
 		second.add(L[i]);
 	    }
 	}
-	int[] result = new int[L.length];
+	Integer[] result = new Integer[L.length];
+	Integer[] lower = first.toArray(new Integer[]{});
+	lower = qsort(lower);
+	Integer[] upper = second.toArray(new Integer[]{});
+	upper = qsort(upper);
 	for (int i = 0; i < L.length; i++){
-	    if (i < first.size()){
-		result[i] = (int)first.get(i);
+	    if (i < lower.length){
+		result[i] = lower[i];
 	    }
-	    else if (i > first.size()){
-		result[i] = (int)second.get(i-first.size());
+	    else if (i > lower.length){
+		result[i] = upper[i-lower.length-1];
 	    }
 	    else{
 		result[i] = L[pivot];
