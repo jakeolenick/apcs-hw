@@ -1,0 +1,21 @@
+public class MyLinkedList{
+
+    private Node head;
+
+    public MyLinkedList(){
+	head = null;
+    }
+
+    public void add(Object s){
+	Node tmp = new Node(s);
+	tmp.setNext(head);
+	head = tmp;
+    }
+
+    public String toString(){
+	String result;
+	result = "" + head;
+	return result;
+    }
+
+}
