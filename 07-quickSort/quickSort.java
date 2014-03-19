@@ -3,7 +3,46 @@ import java.util.*;
 
 public class quickSort{
 
-    public Integer[] qsort(Integer[] L){
+    public int partition(int[] a, int l, int r) {
+	Random rand = new Random();
+	int n;
+	int pivInd = l+rand.nextInt(r-l);
+	int pivot = a[pivInd];
+	n = a[r];
+	a[r] = a[pivInd];
+	a[pivInd]=n;
+
+	int wall=l;
+	for (int i=l;i<r;i++) {
+	    if (a[i]<pivot) {
+		n = a[i];
+		a[i]=a[wall];
+		a[wall]=n;
+		wall++;
+	    }
+	}
+	n = a[wall];
+	a[wall]=a[r];
+	a[r]=n;
+	return wall;
+    }
+
+
+    public void qsort2(int[] a, int l, int r){
+	if (r <= 2){
+	    return;
+	}
+	else{
+	    int p = partition(a,l,r);
+	    if (p-1>l)
+		qsort(a,l,p-1);
+	    if (p+1<r)
+		qsort(a,p+1,r);
+
+	}
+
+
+    public Integer[] qsort1(Integer[] L){
 	if (L.length <= 1){
 	    return L;
 	}
