@@ -87,8 +87,22 @@ public class MyLinkedList{
 		return -1;
 	    }
 	}
-		
-
+	
+    }
     
-       
+    public int length(){
+	Node tmp = head;
+	boolean inList = true;
+	int count = 0;
+	while (inList){
+	    if (tmp != null){
+		count++;
+	    }
+	    else {
+		inList = false;
+	    }
+	}
+	return count;
+    }
+           
 }
