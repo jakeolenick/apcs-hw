@@ -1,9 +1,12 @@
 public class MyLinkedList{
 
     private Node head;
+    private Node dummy;
 
     public MyLinkedList(){
 	head = null;
+	dummy = new Node(null);
+	dummy.setNext(head);
     }
 
     public void add(Object s){
