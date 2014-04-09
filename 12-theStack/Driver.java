@@ -5,7 +5,7 @@ public class Driver{
 
     public static void main(String[] args){
 	
-	test = new Stack();
+	Stack test = new Stack();
 	test.push("hello");
 	test.push("it's me");
 	test.push("am Jake");
