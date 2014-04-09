@@ -3,38 +3,36 @@ import java.util.*;
 
 public class Stack {
 
-    private String[] items;
-    private int top,size;
+    private double[] items;
+    private int top;
 
     public Stack (){
-	items = new String[10];
+	items = new double[10];
 	top = -1;
-	size = 0;
     }
 
-    public void push(String s){
+    public Stack (int n){
+	items = new double[n];
+	top = -1;
+    }
+
+    public void push(double s){
 	items[top+1] = s;
 	top++;
 	int l = items.length;
-	if (top > l - 2){
-	    String[] tmp = new String[l+10]; //Ling reminded me to add this:
-	    for (int i = 0; i < l; i++){
-		tmp [i] = items[i];
-	    }
-	    items = tmp;
+	if (top > l - 1){
+	    items = new double[l+l/2];
 	}
-	size++;
     }
-    
-    public String pop(){
-	String s = items[top];
-	items[top] = "";
+
+    public double pop(){
+	double s = items[top];
+	items[top] = 0.0;
 	top--;
-	size--;
 	return s;
     }
 
-    public String peek(){
+    public double peek(){
 	return items[top];
     }
 
@@ -43,7 +41,7 @@ public class Stack {
     }
 
     public int getSize(){
-	return size;
+	return items.length;
     }
 
     public String toString(){
