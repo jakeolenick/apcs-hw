@@ -1,6 +1,6 @@
 public class Node{
 
-    private Object data;
+    private Object data; //or other object
     private Node next;
 
     public Node(Object s){
