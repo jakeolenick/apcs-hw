@@ -1,8 +1,17 @@
 import java.io.*;
 import java.util.*;
 
-public class BinarySearchTree extends Tree{
+public class BST extends Tree{
 
+    public BST(int x){
+	super(x);
+    }
+    public BST(Node n){
+	super(n);
+    }
+    public BST(){
+	super();
+    }
 
     public Node search(int x){
 	boolean found = false;
@@ -46,3 +55,18 @@ public class BinarySearchTree extends Tree{
 	}
     }
 	
+    public Node search2(Node c, int x){
+	if (c.getLeft() == null && c.getRight() == null){
+	    if (c.getData() == x)
+		return c;
+	    else
+		return null;
+	}
+	if (c.getData() == x)
+	    return c;
+	else if (c.getData() > x)
+	    search2(c.getLeft(), x);
+	else if (c.getData() < x)
+	    search2(c.getRight(),x);
+    }
+}

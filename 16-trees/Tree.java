@@ -3,11 +3,12 @@ import java.util.*;
 
 public class Tree{
 
-    private Node root;
-    private int height;
+    protected Node root;
+    protected int height;
 
     public Tree(Node root){
 	this.root = root;
+	here = root;
 	height = 1
     }    
     public Tree(int x){
