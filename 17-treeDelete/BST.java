@@ -73,15 +73,15 @@ public class BST extends Tree{
     public void delete(int x){
 	//finding the desired node
 	Node pre;
-	Node goal;
-	boolean isRight
-	//deleting it
-	if(goal.getLeft() != null){
-	    if (isRight) pre.setRight(goal.getRight());
-	    else pre.setLeft(goal.getRight);
-	}
-	else if (goal.getLeft() !=  
+	Node here;
+	boolean isRight;
 	
+	//deleting it
+	if(here.getLeft() != null){
+	    if (isRight) pre.setRight(here.getRight());
+	    else pre.setLeft(here.getRight);
+	}
+	else if (goal.getLeft() != true)
+	    }
 
-    }
 }

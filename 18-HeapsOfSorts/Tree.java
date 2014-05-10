@@ -1,0 +1,39 @@
+import java.io.*;
+import java.util.*;
+
+public class Tree{
+
+    private Node root, here;
+    protected int height;
+
+    public Tree(Node root){
+	this.root = root;
+	here = root;
+	height = 1;
+    }     
+    public Tree(int x){
+	this(new Node(x));
+    }
+    public Tree(){
+	this(null);
+	height = 0;
+    }
+
+    public Node insert(Node n, Node current){ 
+	if (current.getLeft() == null){ 
+	    current.setLeft(n);
+	}
+	else if (current.getRight() == null){
+	    current.setRight(n);
+	}
+	else{
+	    insert(n,current.getLeft());
+	}
+	return n;
+    }
+
+    public Node insert(Node n){
+	return insert(n,root);
+    }
+
+}
