@@ -3,15 +3,15 @@ import java.util.*;
 
 public class Node{
 
-    protected Object data;
+    protected int data;
     protected Node left, right;
 
-    public Node(Object d, Node l, Node r){
+    public Node(int d, Node l, Node r){
 	data = d;
 	left = l;
 	right = r;
     }
-    public Node(Object n){
+    public Node(int n){
 	this(n,null,null);
     }
     public Node(Node l, Node r){
@@ -20,14 +20,18 @@ public class Node{
     public Node(Node l){
 	this(0,l,null);
     }
-    public Node(Object n, Node l){
+    public Node(int n, Node l){
 	this(n,l,null);
     }
 
-    public String toString(){ return "" + data; }
+    public String toString(){ return "" + data; } 
+
     public int getData(){ return data; }
     public Node getLeft(){ return left; }
     public Node getRight(){ return right; }
+
+    public boolean hasLeft(){ return (left != null); }
+    public boolean hasRight(){ return (right != null); }
 
     public void setData(int n){	data = n; }
     public void setLeft(Node n){ left = n; }
