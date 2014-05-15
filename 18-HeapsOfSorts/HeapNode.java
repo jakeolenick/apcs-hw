@@ -21,13 +21,19 @@ public class HeapNode extends Node{
 	    p.setLeft(this);
 	else
 	    p.setRight(this);
+	left = (HeapNode)left;
+	right = (HeapNode)right;
     }
     public HeapNode(int d, int num){
 	super(d);
-	id = num;
+	id = num;	
+	left = (HeapNode)left;
+	right = (HeapNode)right;
     }
     public HeapNode(int d){
 	super(d);
+	left = (HeapNode)left;
+	right = (HeapNode)right;
     }
     
     public int getID(){	return id; }
