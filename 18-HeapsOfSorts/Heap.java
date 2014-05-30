@@ -3,7 +3,7 @@ public class Heap extends Tree{
     private int maxID;
     private HeapNode root,current;
     
-    public Heap(HeapNode r){
+    public Heap(HeapNode r){	
 	root = r;
 	root = (HeapNode)root;
 	current = root;
@@ -12,7 +12,6 @@ public class Heap extends Tree{
 	    root.setParent(null);
 	height = 1;
 	maxID = 1;
-
     }
     public Heap(){
 	root = new HeapNode(100,1);
@@ -36,7 +35,8 @@ public class Heap extends Tree{
 		b = get(id, n.getRight());
 	    }
 	    else if (n.hasLeft()){
-		a = get(id, n.getLeft());
+		System.out.println(n.getLeft());
+		// a = get(id, n.getLeft());
 	    }
 	    else
 		return null;
@@ -49,14 +49,14 @@ public class Heap extends Tree{
 		return null;
 	}
 	else
-	    return get(id-1,n);
+	    return get(maxID,n);
     }
     public HeapNode get(int id){
 	return get(id, root);
     }
 
     public int add(HeapNode n){
-	if (maxID == (Math.pow(2,height) - 1)){
+	if ((double)maxID == (Math.pow(2,height) - 1)){
 	    HeapNode temp = root;
 	    while (temp.hasLeft())
 		temp = temp.getLeft();
@@ -67,18 +67,18 @@ public class Heap extends Tree{
 	    if (current.getParent().hasRight()){
 		HeapNode tmp = get(current.getParent().getID()+1);
 		tmp.setLeft(n);
-		n.setParent(tmp);
+		n.setParent(tmp); 
 	    }
 	    else 
 		current.getParent().setRight(n);	    
 	    }
 	maxID++;
+	current = n;
 	n.setID(maxID);
 	if (n.hasParent()){
 	    while(n.getData()>n.getParent().getData())
 		n.swap(n.getParent());
 	}
-	current = get(maxID);
 	return maxID;
     }
 
